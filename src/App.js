@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import UploadForm from './components/uploadForm.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Upload an image to get started:
         </p>
+        <UploadForm />
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/miktdc/digit-recognition-webapp"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          GitHub repo
         </a>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
       </header>
     </div>
   );
