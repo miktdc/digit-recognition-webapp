@@ -10,17 +10,33 @@ const UploadForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!file) {
+      alert("Please upload a file");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch("http://localhost:5000/predict", {
-      method: "POST",
-      body: formData,
-    });
+    try {
+      const response = await fetch("http://localhost:5001/predict", {
+        method: "POST",
+        body: formData,
+      });
 
-    const result = await response.json();
-    setPrediction(result.prediction);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("Prediction:", result.prediction);
+      setPrediction(result.prediction);
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error uploading the file or fetching the prediction.");
+    }
   };
+
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
