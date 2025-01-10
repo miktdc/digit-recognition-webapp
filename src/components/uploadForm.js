@@ -23,21 +23,34 @@ const UploadForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="file"
-          onChange={handleFileChange}
-          className="block w-full text-sm text-gray-500"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Upload and Predict
-        </button>
-      </form>
-      {prediction && <p className="mt-4 text-xl">Prediction: {prediction}</p>}
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div
+        className="card p-4 shadow-sm"
+        style={{
+          backgroundColor: "#f8f9fa",
+          borderRadius: "15px",
+          maxWidth: "400px",
+        }}
+      >
+        <h2 className="text-center mb-4">Upload a Number</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <input
+              type="file"
+              onChange={handleFileChange}
+              className="form-control"
+            />
+          </div>
+          <button type="submit" className="btn w-100 btn-light btn-outline-dark">
+            Upload and Predict
+          </button>
+        </form>
+        {prediction && (
+          <p className="mt-4 text-center">
+            Prediction: <strong>{prediction}</strong>
+          </p>
+        )}
+      </div>
     </div>
   );
 };

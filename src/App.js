@@ -1,25 +1,23 @@
-import './App.css';
-import UploadForm from './components/uploadForm.js';
+import React from "react";
+import UploadForm from "./Components/UploadForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Upload an image to get started:
-        </p>
-        <UploadForm />
-        <a
-          className="App-link"
-          href="https://github.com/miktdc/digit-recognition-webapp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub repo
-        </a>
-      </header>
+    <div style={{ backgroundColor: "#ffffff", height: "100vh" }}>
+      <UploadForm />
+      <a
+        className="App-link mt-4"
+        href="https://github.com/miktdc/digit-recognition-webapp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub repo
+      </a>
+      ;
     </div>
   );
 }
 
 export default App;
+
+
