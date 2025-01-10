@@ -27,7 +27,7 @@ model.add(keras.layers.Dense(10, activation='softmax'))
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # Fit/train the model
-model.fit(x_train, y_train, epochs = 12)
+model.fit(x_train, y_train, epochs=12)
 
 model.save('digits_model.keras')
 
