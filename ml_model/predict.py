@@ -19,20 +19,23 @@ loss, accuracy = model.evaluate(x_test, y_test)
 print("Loss: ", loss)
 print("Accuracy: ", accuracy)
 
+# Make predictions on the test set
 # predictions = model.predict(x_test)
-# plt.imshow(x_test[0], cmap="gray")
-# plt.show()
-# print(f"Predicted label for first test image: {predictions[0].argmax()}")
+# for i in range(x_test.size):
+#     plt.imshow(x_test[i], cmap="gray")
+#     plt.show()
+#     print(f"Predicted label for test image {i}: {predictions[i].argmax()}")
 
-file = './digits/digit9.png'
+# Load and preprocess a single image
+file = './digits/4.png'
 img = keras.preprocessing.image.load_img(file, target_size=(28, 28), color_mode='grayscale')
 img_array = keras.preprocessing.image.img_to_array(img)
 img_array = np.expand_dims(img_array, axis=0) / 255.0
-
-# Invert the colors of the image array
 img_array_inverted = 1.0 - img_array
 
 prediction = model.predict(img_array_inverted)
 digit = np.argmax(prediction)
 
-print("Digit: ", digit)
+print("Predicted Digit: ", digit)
+for i, prob in enumerate(prediction[0]):
+    print(f"Digit {i}: {prob}")

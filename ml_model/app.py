@@ -22,15 +22,11 @@ def predict():
     img = keras.preprocessing.image.load_img(BytesIO(file.read()), target_size=(28, 28), color_mode="grayscale")
     img_array = keras.preprocessing.image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0) / 255.0
-
-    # Invert the colors of the image array
     img_array_inverted = 1.0 - img_array
 
     prediction = model.predict(img_array_inverted)
     digit = np.argmax(prediction)
     print("Digit: ", digit)
-    # prediction = model.predict(img_array)
-    # digit = np.argmax(prediction)
 
     return jsonify({"prediction": int(digit)})
 
