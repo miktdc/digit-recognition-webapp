@@ -6,14 +6,13 @@ function App() {
     <div style={{ backgroundColor: "#ffffff", height: "100vh" }}>
       <UploadForm />
       <a
-        className="App-link mt-4"
+        className="App-link mx-1 text-black"
         href="https://github.com/miktdc/digit-recognition-webapp"
         target="_blank"
         rel="noopener noreferrer"
       >
-        GitHub repo
+        GitHub Repository
       </a>
-      ;
     </div>
   );
 }
